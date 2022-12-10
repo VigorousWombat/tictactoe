@@ -15,7 +15,7 @@
 				Game_Start();
 				break;
 			case 3:
-				endgame();
+				Endgame();
 		}
 	}
 
@@ -29,7 +29,7 @@
 			cout << " [ 0 ] Dummy computer vs. Dummy computer \n";
 			cout << " [ 1 ] Human vs. Human \n";
 			cout << " [ 2 ] Human vs. Dummy Computer \n";
-			cout << " [ 3 ] Exit \n";
+			cout << " [ 3 ] Stop program \n";
 			//If user input has no number...
 			while (!(cin >> number)) {
 				cin.clear();
@@ -53,11 +53,11 @@
 
 			if (turn % 2 == 0) {
 				player = 'X';
-				Move_Random(player);
+				Move_Random();
 			}
 			else {
 				player = 'O';
-				Move_Random(player);
+				Move_Random();
 			}
 			Winner(player);
 			turn++;
@@ -81,17 +81,17 @@
 			}
 			if (menu == 2 && player == 'O') {
 				cout << "\nComputer turn...";
-				Sleep(1000); // ms delay
+				Sleep(500); // ms delay
 				cout << "massive calculation...";
-				Sleep(1000); // ms delay
-				Move_Random(player);
+				Sleep(500); // ms delay
+				Move_Random();
 			}
 			else {
 				Move(player);
 			}
 			Winner(player);
 			turn++;
-			cout << "TURN " << turn << "\n";
+			cout << "\033[34m" << "TURN " << turn << "\033[0m" << "\n";
 		}
 		cout << "\n Full table, no winner this time.\n";
 	}
@@ -107,7 +107,7 @@
 					if (table[i][j] == player && table[i + 1][j + 1] == player && table[i + 2][j + 2] == player
 						&& table[i + 3][j + 3] == player) {
 						count++;
-						cout << "\n 1 TESTI " << i << j << " " << i + 1 << j + 1 << " " << i + 2 << j + 2 << " " << i + 3 << j + 3;
+						//cout << "\n 1 TESTI ";
 					}
 				}
 				// pysty
@@ -115,7 +115,7 @@
 					if (table[i][j] == player && table[i + 1][j] == player && table[i + 2][j] == player
 						&& table[i + 3][j] == player) {
 						count++;
-						cout << "\n 2 TESTI " << i << j << " " << i + 1 << j << " " << i + 2 << j << " " << i + 3 << j;
+						//cout << "\n 2 TESTI " << i << j << " " << i + 1 << j << " " << i + 2 << j << " " << i + 3 << j;
 					}
 				}
 				// vino, oikea kulma
@@ -123,7 +123,7 @@
 					if (table[i][j] == player && table[i + 1][j - 1] == player && table[i + 2][j - 2] == player
 						&& table[i + 3][j - 3] == player) {
 						count++;
-						cout << "\n 3 TESTI " << i << j << " " << i + 1 << j - 1 << " " << i + 2 << j - 2 << " " << i + 3 << j - 3;
+						//cout << "\n 3 TESTI ";
 					}
 				}
 				// vaaka
@@ -131,14 +131,14 @@
 					if (table[i][j] == player && table[i][j + 1] == player && table[i][j + 2] == player
 						&& table[i][j + 3] == player) {
 						count++;
-						cout << "\n 4 TESTI \n";
+						//cout << "\n 4 TESTI ";
 					}
 				}
 			}
 		}
 		if (count == 1) {
 			cout << "\n The Winner is " << player << "\n";
-			endgame();
+			Endgame();
 		}
 	}
 
@@ -152,7 +152,6 @@
 				}
 				else if(table[i][j] == 'O'){
 					cout << " " << "\033[96m" << table[i][j] << "\033[0m";
-
 				}
 				else {
 					cout << " " << table[i][j];
@@ -162,7 +161,7 @@
 		}
 	}
 
-	void Game::endgame()
+	void Game::Endgame()
 	{
 		cout << " Game over. \n";
 		exit(0);
@@ -189,7 +188,7 @@
 				y = Chech_input_character(y_select);
 				if (table[x][y] == '-') {
 					table[x][y] = player;
-					cout << " Player " << player << " choise was (" << x << "," << y << ").\n\n";
+				//	cout << " Player " << player << " choise was (" << x << "," << y << ").\n\n";
 					break;
 				}
 				else {
@@ -203,7 +202,7 @@
 		Print_table();
 	}
 	//for testing purposes.
-	void Game::Move_Random(char player) {
+	void Game::Move_Random() {
 
 		int error = 1;
 		int some_number = 1;
@@ -217,7 +216,7 @@
 
 			if (table[x][y] == '-') {
 				table[x][y] = player;
-				cout << "\nComputer " << player << " choise was (" << x << "," << y << ").\n";
+			//	cout << "\n Computer " << player << " choise was (" << x << "," << y << ").\n";
 				error = 0;
 			}
 			else {
