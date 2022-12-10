@@ -29,8 +29,8 @@ public:
 	void Game_Start();
 	void Winner(char player);
 	void Print_table();
-	void endgame();
+	void Endgame();
 	void Move(char player);
-	void Move_Random(char player);
+	void Move_Random();
 	int Chech_input_character(char y);
 };

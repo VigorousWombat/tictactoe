@@ -82,7 +82,7 @@
 			if (menu == 2 && player == 'O') {
 				cout << "\nComputer turn...";
 				Sleep(500); // ms delay
-				cout << "massive calculation...";
+				cout << "massive calculation...\n";
 				Sleep(500); // ms delay
 				Move_Random();
 			}

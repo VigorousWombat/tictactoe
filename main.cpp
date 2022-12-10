@@ -13,7 +13,8 @@ There is opponent, which is very stupid. It's just make pure random movements.
 
 notes for future:
 -'table' should have various sizes
-- make harder opposite
+- Make harder opposite
+- Also coordinates need fixing (it works though, but presentation should be better)
 *******************************************************************************/
 
 #include "game.h"
