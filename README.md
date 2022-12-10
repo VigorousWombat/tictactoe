@@ -4,7 +4,7 @@ User choose between 0-3 options:
   Number 1 is for two players. User will be asked to make a placement for X or O, depengin whose turn.
   Number 2, user can play against 'computer'.
 
-The first player to get 5 of marks in a row (up, down, across, or diagonally) is the winner.
+The first player to get 4 of marks in a row (up, down, across, or diagonally) is the winner.
 When board is full, the game is over.
 
 
